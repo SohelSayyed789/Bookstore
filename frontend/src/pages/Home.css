@@ -1,0 +1,218 @@
+.home-container {
+  font-family: "Poppins", sans-serif;
+  color: #222;
+  background-color: #fff;
+}
+
+/* Hero Section */
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 8%;
+  flex-wrap: wrap;
+  background: linear-gradient(120deg, #fffaf0, #fce7cf);
+}
+
+.hero-left {
+  flex: 1;
+  min-width: 300px;
+}
+
+.hero-left h1 {
+  font-size: 3rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.hero-left span {
+  color: #ff7b00;
+}
+
+.hero-left p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.shop-btn {
+  background: #ff7b00;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.shop-btn:hover {
+  background: #e56a00;
+}
+
+.hero-right {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+
+.student-img {
+  width: 65%;
+  max-width: 300px;
+}
+
+.book-logo {
+  position: absolute;
+  bottom: 0;
+  right: 25%;
+  width: 120px;
+  opacity: 0.9;
+}
+
+/* Features Section */
+.features-section {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+  text-align: center;
+  padding: 60px 8%;
+  background: #fafafa;
+}
+
+.feature-card {
+  width: 220px;
+  padding: 20px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+}
+
+.feature-icon {
+  font-size: 2rem;
+  color: #ff7b00;
+  margin-bottom: 10px;
+}
+
+/* Featured Books */
+.featured-section {
+  padding: 70px 8%;
+  text-align: center;
+}
+
+.featured-section h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.book-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+}
+
+.book-card img {
+  width: 100%;
+  border-radius: 8px;
+  height: 280px;
+  object-fit: cover;
+}
+
+.book-card h4 {
+  margin: 10px 0 5px;
+  color: #333;
+}
+
+.book-card p {
+  color: #777;
+}
+
+.book-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.buy-btn,
+.cart-btn {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.buy-btn {
+  background: #ff7b00;
+  color: white;
+}
+
+.cart-btn {
+  background: #f1f1f1;
+}
+
+.buy-btn:hover {
+  background: #e56a00;
+}
+
+.cart-btn:hover {
+  background: #ddd;
+}
+
+/* CTA Section */
+.cta-section {
+  text-align: center;
+  padding: 70px 8%;
+  background: linear-gradient(120deg, #ffe9cc, #fffaf0);
+}
+
+.cta-section h2 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.cta-section p {
+  color: #555;
+  margin: 15px 0 25px;
+}
+
+.cta-btn {
+  background: #ff7b00;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.cta-btn:hover {
+  background: #e56a00;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .student-img {
+    width: 80%;
+  }
+  .book-logo {
+    display: none;
+  }
+}
