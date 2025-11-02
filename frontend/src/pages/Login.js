@@ -4,44 +4,56 @@ import "./Auth.css";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({ email: "", password: "" });
 
+  // State for form inputs
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  // Handle input change
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // ✅ Updated to connect with backend
+  // Handle form submit (connects to backend)
   const handleSubmit = async (e) => {
-  e.preventDefault();
-  try {
-    const response = await fetch("https://bookstore-zxrx.onrender.com/api/users/login", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ email, password }),
-});
+    e.preventDefault();
 
+    try {
+      const response = await fetch(
+        "https://bookstore-zxrx.onrender.com/api/users/login",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: formData.email,
+            password: formData.password,
+          }),
+        }
+      );
 
-    const data = await response.json();
+      const data = await response.json();
 
-    if (response.ok) {
-      alert("Login Successful 🎉");
-      localStorage.setItem("token", data.token);
-      navigate("/books");
-    } else {
-      alert(data.message || "Login failed");
+      if (response.ok) {
+        alert("Login Successful 🎉");
+        localStorage.setItem("token", data.token);
+        navigate("/books");
+      } else {
+        alert(data.message || "Login failed");
+      }
+    } catch (err) {
+      console.error("Login error:", err);
+      alert("Error logging in");
     }
-  } catch (err) {
-    console.error("Login error:", err);
-    alert("Error logging in");
-  }
-};
-
+  };
 
   return (
     <div className="auth-container">
       <div className="auth-box">
         <h2>Welcome Back 📚</h2>
         <p className="auth-subtitle">Login to continue your journey</p>
+
         <form onSubmit={handleSubmit}>
           <div className="input-group">
             <label>Email</label>
@@ -54,6 +66,7 @@ const Login = () => {
               required
             />
           </div>
+
           <div className="input-group">
             <label>Password</label>
             <input
@@ -65,10 +78,12 @@ const Login = () => {
               required
             />
           </div>
+
           <button type="submit" className="btn-auth">
             Login
           </button>
         </form>
+
         <p className="auth-footer">
           Don’t have an account? <Link to="/register">Register</Link>
         </p>
