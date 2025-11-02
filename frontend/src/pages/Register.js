@@ -25,7 +25,7 @@ const Register = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/users/register", {
+      const response = await fetch("https://bookstore-zxrx.onrender.com", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, password }),
