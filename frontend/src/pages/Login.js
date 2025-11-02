@@ -14,11 +14,12 @@ const Login = () => {
   const handleSubmit = async (e) => {
   e.preventDefault();
   try {
-    const response = await fetch("https://bookstore-zxrx.onrender.com", {
+    const response = await fetch("https://bookstore-zxrx.onrender.com/api/users/login", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(formData),
+  body: JSON.stringify({ email, password }),
 });
+
 
     const data = await response.json();
 
