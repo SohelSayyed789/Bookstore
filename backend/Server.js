@@ -8,11 +8,15 @@ import purchaseRoutes from "./routes/PurchaseRoutes.js";
 dotenv.config();
 const app = express();
 
+import cors from "cors";
 app.use(cors({
-  origin: "https://bookstore-zxrx.onrender.com",
-  methods: ["GET", "POST", "PUT", "DELETE"],
+  origin: [
+    "http://localhost:3000",
+    "https://bookstore-1-8ec4.onrender.com"
+  ],
   credentials: true
 }));
+
 app.use(express.json());
 
 mongoose
