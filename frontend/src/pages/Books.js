@@ -76,17 +76,18 @@ export default function Books() {
   const confirmBuyNow = async () => {
     try {
       const userName = localStorage.getItem("userName") || "Guest User";
-      const res = await fetch("https://bookstore-zxrx.onrender.com", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          userName,
-          bookName: buyNowBook.title,
-          author: buyNowBook.author,
-          price: buyNowBook.price,
-          quantity: buyQty,
-        }),
-      });
+     const res = await fetch("https://bookstore-11-2mor.onrender.com/api/purchase", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    userName,
+    bookName: buyNowBook.title,
+    author: buyNowBook.author,
+    price: buyNowBook.price,
+    quantity: buyQty,
+  }),
+});
+
       const data = await res.json();
       if (res.ok) alert(`✅ Purchased ${buyQty} "${buyNowBook.title}" successfully!`);
       else alert(`❌ Error: ${data.message}`);
