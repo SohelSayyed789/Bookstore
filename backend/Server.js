@@ -13,8 +13,8 @@ const app = express();
 app.use(
   cors({
     origin: [
-      "https://bookstore-1-0cty.onrender.com", // 👈 your real frontend link
-      "http://localhost:3000", // local testing
+      "https://bookstore-1-0cty.onrender.com", // 👈 Replace this with your **new frontend Render link**
+      "http://localhost:3000", // 👈 Keep for local development
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
@@ -29,12 +29,15 @@ mongoose
   .connect(process.env.MONGO_URI, { dbName: "bookstore" })
   .then(() => console.log("✅ MongoDB Connected"))
   .catch((err) => console.error("❌ MongoDB Connection Error:", err));
+
 // Routes
 app.use("/api/users", userRoutes);
 app.use("/api/purchase", purchaseRoutes);
 
 // Default route
-app.get("/", (req, res) => res.send("🚀 API is running and connected!"));
+app.get("/", (req, res) =>
+  res.send("🚀 API is running and connected to MongoDB successfully!")
+);
 
 // ✅ Dynamic PORT for Render
 const PORT = process.env.PORT || 5000;

@@ -25,11 +25,12 @@ const Register = () => {
     }
 
     try {
-      const response = await fetch("https://bookstore-zxrx.onrender.com/api/users/register", {
+     const response = await fetch("https://bookstore-11-2mor.onrender.com/api/users/register", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({ name, email, password }),
 });
+
 
 
       const data = await response.json();
