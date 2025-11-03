@@ -76,7 +76,7 @@ export default function Books() {
   const confirmBuyNow = async () => {
     try {
       const userName = localStorage.getItem("userName") || "Guest User";
-    const res = await fetch("https://bookstore-11-2mor.onrender.com/api/purchase", {
+   const res = await fetch("https://bookstore-11-2mor.onrender.com/api/purchase/add", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({
@@ -87,6 +87,7 @@ export default function Books() {
     quantity: buyQty,
   }),
 });
+
 
 
       const data = await res.json();
