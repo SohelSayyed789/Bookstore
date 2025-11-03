@@ -6,28 +6,41 @@ import userRoutes from "./routes/userRoutes.js";
 import purchaseRoutes from "./routes/PurchaseRoutes.js";
 
 dotenv.config();
+
 const app = express();
 
-import cors from "cors";
-app.use(cors({
-  origin: [
-    "http://localhost:3000",
-    "https://bookstore-1-8ec4.onrender.com"
-  ],
-  credentials: true
-}));
+// ✅ Correct CORS setup for Render
+app.use(
+  cors({
+    origin: [
+      "https://bookstore-1-0cty.onrender.com", // 👈 your real frontend link
+      "http://localhost:3000", // local testing
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
+// Middleware
 app.use(express.json());
 
+// ✅ MongoDB connection
 mongoose
-  .connect(process.env.MONGO_URI, { dbName: "bookstore" })
+  .connect(process.env.MONGO_URI, {
+    dbName: "bookstore",
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => console.log("✅ MongoDB Connected"))
   .catch((err) => console.error("❌ MongoDB Connection Error:", err));
 
+// Routes
 app.use("/api/users", userRoutes);
 app.use("/api/purchase", purchaseRoutes);
 
-app.get("/", (req, res) => res.send("API is running..."));
+// Default route
+app.get("/", (req, res) => res.send("🚀 API is running and connected!"));
 
+// ✅ Dynamic PORT for Render
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
