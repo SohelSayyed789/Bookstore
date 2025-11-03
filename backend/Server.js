@@ -13,8 +13,8 @@ const app = express();
 app.use(
   cors({
     origin: [
-      "https://bookstore-1-0cty.onrender.com", // 👈 Replace this with your **new frontend Render link**
-      "http://localhost:3000", // 👈 Keep for local development
+      "https://bookstore-1-u4b4.onrender.com", // 👈 your current frontend link
+      "http://localhost:3000", // 👈 for local testing
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
