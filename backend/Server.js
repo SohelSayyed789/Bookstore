@@ -26,14 +26,9 @@ app.use(express.json());
 
 // ✅ MongoDB connection
 mongoose
-  .connect(process.env.MONGO_URI, {
-    dbName: "bookstore",
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.MONGO_URI, { dbName: "bookstore" })
   .then(() => console.log("✅ MongoDB Connected"))
   .catch((err) => console.error("❌ MongoDB Connection Error:", err));
-
 // Routes
 app.use("/api/users", userRoutes);
 app.use("/api/purchase", purchaseRoutes);
